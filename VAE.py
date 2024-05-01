@@ -1,47 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
-pip install openai
-
-
-# In[4]:
-
-
-get_ipython().system('pip install pyttsx3')
-
-
-# In[5]:
-
-
-pip install SpeechRecognition
-
-
-# In[16]:
-
-
-pip install pyaudio
-
-
-# In[4]:
-
-
 import openai
 import speech_recognition as sr
 import pyttsx3
 
-
-# In[5]:
-
-
 openai.api_key = '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'
 engine = pyttsx3.init()
-
-
-# In[6]:
-
 
 def transcribe_audio_to_text(filename):
     recognizer = sr.Recognizer()
@@ -52,11 +14,6 @@ def transcribe_audio_to_text(filename):
     except:
         print("Unknown Error")
         
-
-
-# In[7]:
-
-
 def generate_response(prompt):
     response = openai.Completion.create(
     engine = "",
@@ -67,17 +24,9 @@ def generate_response(prompt):
     temperature = 0.5)
     return response["Choices"][0]["text"]
 
-
-# In[9]:
-
-
 def speak_text(text):
     engine.say(text)
     engine.RunAndWait()
-
-
-# In[10]:
-
 
 def main():
     while True:
@@ -106,11 +55,6 @@ def main():
             except Exception as e:
                 print(f"An Error occured : {e}")
                 
-                            
-
-
-# In[11]:
-
 
 main()
 
